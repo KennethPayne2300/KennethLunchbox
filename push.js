@@ -34,7 +34,6 @@ function submitForm(event) {
     //event.preventDefault();
     const email = document.getElementById('emailINPUT').value;
     const password = document.getElementById('passwordINPUT').value;
-    try{
     signInWithPopup(auth, provider)
     .then((userCredential) => {
         //checkbox initializations
@@ -73,11 +72,7 @@ function submitForm(event) {
             document.getElementById('dessertINPUT3').value="";
         }
 
-        try{
         const breaksINPUT = document.querySelector('input[name="breaksRadio"]:checked').value;
-        } catch(err){
-            console.error(err)
-        }
             
         const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
@@ -149,13 +144,11 @@ function submitForm(event) {
         alert("Authentication failed.", error);
     });
     document.getElementById('passwordINPUT').value="";
-    } catch(err) {
-        console.error(err);
-    }
     
 }
 const submitBTN = document.getElementById("submitBTN");
 
 submitBTN.addEventListener("click", submitForm);
+
 
 
