@@ -73,8 +73,12 @@ function submitForm(event) {
             document.getElementById('dessertINPUT3').value="";
         }
 
+        try{
         const breaksINPUT = document.querySelector('input[name="breaksRadio"]:checked').value;
-
+        } catch(err){
+            console.error(err)
+        }
+            
         const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
@@ -153,3 +157,4 @@ function submitForm(event) {
 const submitBTN = document.getElementById("submitBTN");
 
 submitBTN.addEventListener("click", submitForm);
+
