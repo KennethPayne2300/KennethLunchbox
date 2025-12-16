@@ -34,6 +34,7 @@ function submitForm(event) {
     //event.preventDefault();
     const email = document.getElementById('emailINPUT').value;
     const password = document.getElementById('passwordINPUT').value;
+    try{
     signInWithPopup(auth, provider)
     .then((userCredential) => {
         //checkbox initializations
@@ -144,8 +145,11 @@ function submitForm(event) {
         alert("Authentication failed.", error);
     });
     document.getElementById('passwordINPUT').value="";
-    
+    } catch(err) {
+        console.error(err);
+    }
     
 }
 const submitBTN = document.getElementById("submitBTN");
+
 submitBTN.addEventListener("click", submitForm);
